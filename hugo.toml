@@ -1,0 +1,37 @@
+baseURL = 'https://homogeneous.tools/'
+locale = 'en-us'
+title = 'HomogeneousTools'
+theme = 'hugo-xmin'
+
+[permalinks]
+  blog = "/blog/:year/:month/:day/:slug/"
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['$$', '$$']]
+          inline = [['$', '$']]
+
+[params]
+  footer = "© {Year} HomogeneousTools &middot; [GitHub](https://github.com/HomogeneousTools)"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Blog"
+  url = "/blog/"
+  weight = 2
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 3
