@@ -1,1 +1,17 @@
-<script src="https://asciinema.org/a/{{ .Get 0 }}.js" id="asciicast-{{ .Get 0 }}" data-size="small" async></script>
+{{- $src := replaceRE "^\"|\"$" "" (.Get 0) -}}
+{{- if hasSuffix $src ".cast" -}}
+  {{- $id := md5 $src -}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.6.3/dist/bundle/asciinema-player.css">
+  <div id="asciinema-player-{{ $id }}" style="margin: 1.5em 0;"></div>
+  <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.6.3/dist/bundle/asciinema-player.min.js"></script>
+  <script>
+    AsciinemaPlayer.create('{{ $src }}', document.getElementById("asciinema-player-{{ $id }}"), {
+      fit: "width",
+      preload: true,
+      poster: "npt:0:01",
+      idleTimeLimit: 1
+    });
+  </script>
+{{- else -}}
+  <script src="https://asciinema.org/a/{{ $src }}.js" id="asciicast-{{ $src }}" data-size="small" async></script>
+{{- end -}}

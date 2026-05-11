@@ -12,7 +12,7 @@ title: HomogeneousTools
 
 {{< blog-list >}}
 
-## Lie.jl
+## [Lie.jl](https://github.com/HomogeneousTools/Lie.jl)
 
 [![tests](https://github.com/HomogeneousTools/Lie.jl/actions/workflows/tests.yml/badge.svg)](https://github.com/HomogeneousTools/Lie.jl/actions/workflows/tests.yml)
 [![Docs](https://img.shields.io/badge/docs-homogeneous.tools/Lie.jl-blue)](https://homogeneous.tools/Lie.jl/)
@@ -30,7 +30,7 @@ It does not yet match the features of these packages, but the basics are there.
 
 This is still a work-in-progress, and will be public soon.
 
-## ZeroLocus62
+## [ZeroLocus62](https://github.com/HomogeneousTools/ZeroLocus62)
 
 [![Tests](https://github.com/HomogeneousTools/ZeroLocus62/actions/workflows/CI.yml/badge.svg)](https://github.com/HomogeneousTools/ZeroLocus62/actions/workflows/CI.yml)
 [![Docs](https://img.shields.io/badge/docs-zl62.homogeneous.tools-blue)](https://zl62.homogeneous.tools)
