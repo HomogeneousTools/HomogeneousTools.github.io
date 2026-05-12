@@ -4,7 +4,7 @@ title: HomogeneousTools
 
 > HomogeneousTools is a toolset to work with homogeneous varieties and homogeneous vector bundles on them, mostly with a view towards sheaf cohomology.
 
-* [Lie.jl](https://homogeneous.tools/Lie.jl) ([GitHub](https://github.com/HomogeneousTools/Lie.jl))
+* [Semisimple.jl](https://homogeneous.tools/Semisimple.jl) ([GitHub](https://github.com/HomogeneousTools/Semisimple.jl))
 * PartialFlagVarieties.jl (in progress)
 * [ZeroLocus62](https://zl62.homogeneous.tools) ([GitHub](https://github.com/HomogeneousTools/ZeroLocus62))
 
@@ -12,11 +12,11 @@ title: HomogeneousTools
 
 {{< blog-list >}}
 
-## [Lie.jl](https://github.com/HomogeneousTools/Lie.jl)
+## [Semisimple.jl](https://github.com/HomogeneousTools/Semisimple.jl)
 
-[![tests](https://github.com/HomogeneousTools/Lie.jl/actions/workflows/tests.yml/badge.svg)](https://github.com/HomogeneousTools/Lie.jl/actions/workflows/tests.yml)
-[![Docs](https://img.shields.io/badge/docs-homogeneous.tools/Lie.jl-blue)](https://homogeneous.tools/Lie.jl/)
-[![Release](https://img.shields.io/github/v/release/HomogeneousTools/Lie.jl?color=green)](https://github.com/HomogeneousTools/Lie.jl/releases)
+[![tests](https://github.com/HomogeneousTools/Semisimple.jl/actions/workflows/tests.yml/badge.svg)](https://github.com/HomogeneousTools/Semisimple.jl/actions/workflows/tests.yml)
+[![Docs](https://img.shields.io/badge/docs-homogeneous.tools/Semisimple.jl-blue)](https://homogeneous.tools/Semisimple.jl/)
+[![Release](https://img.shields.io/github/v/release/HomogeneousTools/Semisimple.jl?color=green)](https://github.com/HomogeneousTools/Semisimple.jl/releases)
 
 > A Julia package for computations with semisimple Lie algebras: root systems, Weyl groups, weight lattices, and representation-theoretic operations.
 
