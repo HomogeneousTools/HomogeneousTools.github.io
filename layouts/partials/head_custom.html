@@ -17,3 +17,8 @@
 
 <!-- GitHub icon on github.com links -->
 <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
+
+<!-- RSS feed autodiscovery -->
+{{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}

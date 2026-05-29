@@ -12,5 +12,8 @@
   </li>
   {{ end }}
 </ul>
+{{ with .OutputFormats.Get "rss" -}}
+<p><a href="{{ .Permalink }}">Subscribe via RSS</a></p>
+{{ end -}}
 </main>
 {{ partial "footer.html" . }}
