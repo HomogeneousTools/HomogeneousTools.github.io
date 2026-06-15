@@ -3,6 +3,7 @@ title: "Representations with the same degree"
 slug: "representations-with-the-same-degree"
 date: 2026-06-04
 author: "Pieter Belmans"
+toc: true
 ---
 Time for the next installment of the arXiv series.
 Today's preprint is from earlier this year, and it's
@@ -14,6 +15,9 @@ In what follows, I will (mostly) refer to the arXiv preprint.
 
 As before, we will use [Semisimple.jl](https://homogeneous.tools/Semisimple.jl/dev/)
 to play with the constructions in the paper.
+
+Added on June 15 2026: <ins>Frank Lübeck spotted two errors in the original post —
+see the [Corrections](#corrections) at the end.</ins>
 
 ## Infinitely many pairs
 
@@ -64,6 +68,7 @@ namely $\mathrm{V}(2\omega_6)$ and $\mathrm{V}(\omega_5)$;
 the other six pairs have no such automorphic explanation.
 
 One can reproduce this brute-force search using Semisimple.jl:
+<a name="smallest_pair"></a>
 ```julia
 # diagram automorphism on coordinates; trivial except for A_2 and E_6.
 outer(::Type{TypeA{2}}, v) = reverse(v)
@@ -89,6 +94,10 @@ for DT in (TypeA{2}, TypeB{2}, TypeG2, TypeF4, TypeE{6}, TypeE{7}, TypeE{8})
   println(rpad(string(DT), 12), "  d = ", lpad(string(d), 12), "    ", join(ws, "  "))
 end
 ```
+
+Added on June 15 2026: <ins>as written, [`smallest_pair`](#smallest_pair) does
+**not** actually prove that the pair it returns is the smallest one — see
+[Corrections](#corrections) below.</ins>
 
 ## Theorem 3: infinite families in the classical types
 
@@ -140,9 +149,14 @@ since `degree` returns `BigInt`.
   So there seems to be a fun open number-theoretical question here,
   unless I'm missing something?
 * There are fun OEIS sequences to add here:
-  [A000891](https://oeis.org/A000891) are the smallest degrees in type $\mathrm{A}_l$ where duplicate representations exist,
-  but the sequences in types B and D are missing (in type C the chaotic behavior makes it hard to produce the sequence).
-  The entries for these sequences are computed both by Lübeck and Huchala.
+  the degrees of Lübeck's explicit family in type $\mathrm{A}_l$ are exactly
+  [A000891](https://oeis.org/A000891), and the analogous family degrees in
+  types B and D are missing from the OEIS (in type C the chaotic behavior makes
+  it hard to produce any clean sequence).
+  The entries for these family sequences are computed both by Lübeck and Huchala.
+  Added on June 15 2026: <ins>beware that these are the degrees of Lübeck's
+  *construction*, not the smallest degrees at which a duplicate occurs — again
+  see [Corrections](#corrections).</ins>
 
   If anyone is interested in adding these, here is some Julia code to determine them:
   ```julia
@@ -170,3 +184,54 @@ since `degree` returns `BigInt`.
     which gives
     * `35, 3003, 383724, 58790875, 10011037452, 1827174287820, 350280152218800, 69656361253789275, 14250522671900707500, 2982164406170216424300, 635707916954453388942000, 137613009450274251664451148`, resp.
     * `32928, 4671810, 759230472, 134282273216, 25166658696000, 4919891369426550, 993186502108515000, 205625998084534750800, 43449470935521085094400, 9336731949069856461585000, 2034842637042393404135380128, 448826044126481544919237242240`.
+
+## Corrections
+
+After this post first appeared, Frank Lübeck kindly pointed out two mistakes.
+Both are corrected above; this section spells out what went wrong and how to fix
+it.
+
+### `smallest_pair` does not certify minimality
+
+[`smallest_pair`](#smallest_pair) only loops over the box `0:N` (with `N=4`),
+and nothing about it rules out that some weight with a coordinate larger than `N`
+has a smaller degree and forms a smaller pair. There is a cheap certificate, though. The Weyl dimension
+formula is strictly increasing in each coordinate, so every weight with some
+coordinate `> N` has degree at least $\min_i\deg\bigl((N+1)\omega_i\bigr)$; if that
+minimum already exceeds the degree `d` of the pair we found, then no weight outside
+the box can match or beat it, and the box was provably large enough:
+
+```julia
+function certified(::Type{DT}; N=4) where {DT<:DynkinType}
+  d, ws = smallest_pair(DT; N)
+  l = rank(DT)
+  @assert minimum(degree(DT, [i == j ? N+1 : 0 for j in 1:l]) for i in 1:l) > d
+  return d, ws
+end
+```
+
+This check passes for $\mathrm{A}_2,\mathrm{B}_2,\mathrm{G}_2,\mathrm{F}_4,\mathrm{E}_6$,
+but it *fails* for $\mathrm{E}_7$ and $\mathrm{E}_8$ at `N=4`. The cleanest example
+is in $\mathrm{E}_8$: already $\deg(5\omega_8)=2\,642\,777\,280$ is smaller
+than the pair degree $8\,634\,368\,000$ from Proposition&nbsp;2, so the box `0:4`
+is not certified — the search simply hasn't looked at enough weights to know.
+A degree-bounded backtrack that enumerates *every* dominant weight whose degree is
+below the candidate settles it: doing so confirms that the tabulated $\mathrm{E}_7$
+and $\mathrm{E}_8$ values really are the smallest, but that is a fact the box search
+alone never establishes.
+
+### A000891 is not the sequence of smallest degrees
+
+I described [A000891](https://oeis.org/A000891) as the smallest degrees in type
+$\mathrm{A}_l$ at which a duplicate occurs. That is wrong: A000891 is exactly the
+sequence of degrees of Lübeck's *explicit construction*, and those are in general
+much larger than the genuine smallest — for instance the construction gives $175$
+in $\mathrm{A}_4$, whereas a same-degree pair already occurs at $70$. The type B
+and D family sequences listed earlier are construction degrees in the same way,
+not the smallest.
+
+Added on June 15 2026: <ins>the genuine smallest-degree sequences for types
+$\mathrm{A}$, $\mathrm{B}$ and $\mathrm{D}$ — with witnessing weights and the code
+that finds them — are tabulated in a [follow-up post](/blog/2026/06/15/smallest-degrees-with-duplicate-dimensions/).</ins>
+
+*Thanks to Frank Lübeck for both corrections!*

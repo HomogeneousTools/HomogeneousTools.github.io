@@ -24,6 +24,58 @@ main h3 {
   margin-top: 1.5em;
 }
 
+/* Editorial corrections: make inline <ins> stand out as a highlighted addition */
+ins {
+  background-color: #fff3b0;
+  box-shadow: 0 0 0 2px #fff3b0;
+  border-bottom: 2px solid #e0a800;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+/* Clickable headings: link to the heading's own anchor, looking like plain text */
+.heading-anchor {
+  color: inherit;
+  text-decoration: none;
+}
+.heading-anchor:hover {
+  text-decoration: underline;
+}
+:is(h1, h2, h3, h4):hover .heading-anchor::after {
+  content: " #";
+  color: #999;
+  font-weight: normal;
+}
+
+/* Per-post table of contents */
+.post-toc {
+  margin: 1.5em 0 2.5em;
+  padding: 0.5em 1.25em;
+  background-color: #f8f8f8;
+  border: 1px solid #e1e4e8;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+.post-toc-title {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+  font-size: 0.85em;
+}
+.post-toc nav#TableOfContents ul {
+  margin: 0.3em 0;
+}
+
+/* Smallest-collisions table: visual separators between the A, B and D blocks
+   (A = rows 1-9, B = rows 10-18, D = rows 19-25) */
+.type-table table {
+  border-collapse: collapse;
+}
+.type-table tbody tr:nth-child(9) td,
+.type-table tbody tr:nth-child(18) td {
+  border-bottom: 2px solid #888;
+}
+
 /* Syntax highlighting: soften the pre border */
 pre {
   border: 1px solid #e1e4e8;
