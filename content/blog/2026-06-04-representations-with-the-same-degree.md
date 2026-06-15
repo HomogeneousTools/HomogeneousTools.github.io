@@ -17,7 +17,9 @@ As before, we will use [Semisimple.jl](https://homogeneous.tools/Semisimple.jl/d
 to play with the constructions in the paper.
 
 Added on June 15 2026: <ins>Frank Lübeck spotted two errors in the original post —
-see the [Corrections](#corrections) at the end.</ins>
+see the [Corrections](#corrections) at the end. There is also a
+[follow-up post](/blog/2026/06/15/smallest-degrees-with-duplicate-dimensions/)
+tabulating the genuine smallest collisions.</ins>
 
 ## Infinitely many pairs
 

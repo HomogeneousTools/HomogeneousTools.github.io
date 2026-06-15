@@ -6,8 +6,9 @@ author: "Pieter Belmans"
 ---
 This is a follow-up to
 [Representations with the same degree](/blog/2026/06/04/representations-with-the-same-degree/),
-about [Frank Lübeck's preprint](https://arxiv.org/abs/2601.18786) on irreducible
-representations of a simple algebraic group that share their dimension.
+about [Frank Lübeck's preprint](https://arxiv.org/abs/2601.18786) and
+[Andy Huchala's undergraduate thesis](https://ahuchala.com/files/undergrad/Lie_Algebra_Representation_Thesis.pdf)
+on irreducible representations of a simple algebraic group that share their dimension.
 In the [corrections](/blog/2026/06/04/representations-with-the-same-degree/#corrections)
 to that post I noted that the clean *construction* sequences (such as
 [A000891](https://oeis.org/A000891) in type $\mathrm{A}_l$) are **not** the smallest
@@ -104,3 +105,8 @@ end
 [smallest_duplicate(TypeB{l}) for l in 2:25]
 [smallest_duplicate(TypeD{l}) for l in 4:25]
 ```
+
+Computing all three lists up to $l=25$ takes about a minute (≈56 s on my laptop,
+after compilation); it stays this fast because in high rank only few dominant
+weights have small dimension, so even the largest bounds — some entries exceed
+$10^{23}$ — still enclose comparatively few weights to enumerate.
