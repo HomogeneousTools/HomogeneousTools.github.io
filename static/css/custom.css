@@ -104,3 +104,13 @@ main h2 a[href="https://github.com/HomogeneousTools/Semisimple.jl"]::before {
   background-image: url("../images/semisimple-favicon.svg");
   background-size: 100% 100%;
 }
+
+/* Use the PartialFlagVarieties.jl favicon for its package header link on the home page */
+main h2 a[href="https://github.com/HomogeneousTools/PartialFlagVarieties.jl"]::before {
+  width: 0.95em;
+  height: 0.95em;
+  vertical-align: -0.08em;
+  margin-right: 0.3em;
+  background-image: url("../images/partialflagvarieties-favicon.svg");
+  background-size: 100% 100%;
+}

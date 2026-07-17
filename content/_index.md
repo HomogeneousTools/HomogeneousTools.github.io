@@ -5,7 +5,7 @@ title: HomogeneousTools
 > HomogeneousTools is a toolset to work with homogeneous varieties and homogeneous vector bundles on them, mostly with a view towards sheaf cohomology.
 
 * [Semisimple.jl](https://homogeneous.tools/Semisimple.jl) ([GitHub](https://github.com/HomogeneousTools/Semisimple.jl))
-* PartialFlagVarieties.jl (in progress)
+* [PartialFlagVarieties.jl](https://homogeneous.tools/PartialFlagVarieties.jl) ([GitHub](https://github.com/HomogeneousTools/PartialFlagVarieties.jl))
 * [ZeroLocus62](https://zl62.homogeneous.tools) ([GitHub](https://github.com/HomogeneousTools/ZeroLocus62))
 
 ### Recent posts
@@ -24,11 +24,15 @@ It is similar to [LiE](http://www-math.univ-poitiers.fr/~maavl/LiE/) and [LieART
 with a heavy focus on speed.
 It does not yet match the features of these packages, but the basics are there.
 
-## PartialFlagVarieties.jl
+## [PartialFlagVarieties.jl](https://github.com/HomogeneousTools/PartialFlagVarieties.jl)
+
+[![tests](https://github.com/HomogeneousTools/PartialFlagVarieties.jl/actions/workflows/test.yml/badge.svg)](https://github.com/HomogeneousTools/PartialFlagVarieties.jl/actions/workflows/test.yml)
+[![Docs](https://img.shields.io/badge/docs-homogeneous.tools/PartialFlagVarieties.jl-blue)](https://homogeneous.tools/PartialFlagVarieties.jl/)
+[![pre-release](https://img.shields.io/badge/pre--release-v0.1.0-orange)](https://github.com/HomogeneousTools/PartialFlagVarieties.jl)
 
 > A Julia package for computing with partial flag varieties $G/P$: equivariant vector bundles, sheaf cohomology via the Borel–Weil–Bott theorem, zero loci, Hodge numbers, Hochschild cohomology, exceptional collections, and more.
 
-This is still a work-in-progress, and will be public soon.
+PartialFlagVarieties.jl is now available as a public pre-release, `v0.1.0`. The essential functionality is in place and ready to use, but the API may still change before a stable `1.0` release. See the [announcement post](/blog/2026/07/17/partialflagvarieties-pre-release/) for what works today and what is still coming.
 
 ## [ZeroLocus62](https://github.com/HomogeneousTools/ZeroLocus62)
 
