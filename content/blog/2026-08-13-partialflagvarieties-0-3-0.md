@@ -5,9 +5,9 @@ date: 2026-08-13
 author: "Pieter Belmans"
 ---
 
-Two releases since the [pre-release](/blog/2026/07/17/partialflagvarieties-pre-release/)
+Since the [pre-release](/blog/2026/07/17/partialflagvarieties-pre-release/)
 of [PartialFlagVarieties.jl](https://github.com/HomogeneousTools/PartialFlagVarieties.jl)
-at `v0.1.0`. `0.2.0` and `0.2.1` were housekeeping; `0.3.0` adds maps between flag
+at `v0.1.0`: `0.2.0` and `0.2.1` were housekeeping, and `0.3.0` adds maps between flag
 varieties, and renames a few things while the leading zero still allows it.
 
 ## Maps between flag varieties
@@ -58,7 +58,9 @@ others.
 ## Trying it out
 
 The package is not in the General registry, because one of its dependencies is not
-either, so that one comes first, and `rev` pins the release rather than tracking `main`:
+either, so that one comes first, and `rev` pins the release rather than tracking
+`main`. In fact we are on `0.3.1` already, which removes a dependency the package did
+not need:
 
 ```julia
 using Pkg
