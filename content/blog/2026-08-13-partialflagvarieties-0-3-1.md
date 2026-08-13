@@ -1,14 +1,16 @@
 ---
-title: "PartialFlagVarieties.jl 0.2.0 and then 0.3.0"
-slug: "partialflagvarieties-0-3-0"
+title: "PartialFlagVarieties.jl 0.3.1"
+slug: "partialflagvarieties-0-3-1"
 date: 2026-08-13
 author: "Pieter Belmans"
 ---
 
 Since the [pre-release](/blog/2026/07/17/partialflagvarieties-pre-release/)
 of [PartialFlagVarieties.jl](https://github.com/HomogeneousTools/PartialFlagVarieties.jl)
-at `v0.1.0`: `0.2.0` and `0.2.1` were housekeeping, and `0.3.0` adds maps between flag
-varieties, and renames a few things while the leading zero still allows it.
+at `v0.1.0`: `0.2.0` and `0.2.1` were housekeeping, `0.3.0` adds maps between flag
+varieties and renames a few things while the leading zero still allows it, and `0.3.1`
+removes a dependency the package did not need. So the current version is `0.3.1`, but
+`0.3.0` is the one worth reading about.
 
 ## Maps between flag varieties
 
@@ -59,8 +61,7 @@ others.
 
 The package is not in the General registry, because one of its dependencies is not
 either, so that one comes first, and `rev` pins the release rather than tracking
-`main`. In fact we are on `0.3.1` already, which removes a dependency the package did
-not need:
+`main`:
 
 ```julia
 using Pkg
