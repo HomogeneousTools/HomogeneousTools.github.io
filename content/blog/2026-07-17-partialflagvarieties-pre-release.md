@@ -89,7 +89,6 @@ Since this is a pre-release, the surest way to install it is directly from the r
 
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/HomogeneousTools/Base62.jl")
 Pkg.add(url="https://github.com/HomogeneousTools/ZeroLocus62", subdir="julia")
 Pkg.add(url="https://github.com/HomogeneousTools/PartialFlagVarieties.jl")
 ```

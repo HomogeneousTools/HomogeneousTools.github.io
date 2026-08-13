@@ -57,15 +57,14 @@ others.
 
 ## Trying it out
 
-The package is not in the General registry, because two of its dependencies are not
-either, so those come first, and `rev` pins the release rather than tracking `main`:
+The package is not in the General registry, because one of its dependencies is not
+either, so that one comes first, and `rev` pins the release rather than tracking `main`:
 
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/HomogeneousTools/Base62.jl")
 Pkg.add(url="https://github.com/HomogeneousTools/ZeroLocus62", subdir="julia")
 Pkg.add(url="https://github.com/HomogeneousTools/PartialFlagVarieties.jl",
-        rev="5b162d4")   # v0.3.0
+        rev="ea4aa9e")   # v0.3.1
 ```
 
 The [documentation](https://homogeneous.tools/PartialFlagVarieties.jl) has the full API.
