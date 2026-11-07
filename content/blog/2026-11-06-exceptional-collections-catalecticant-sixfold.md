@@ -3,7 +3,7 @@ title: "Exceptional collections on the catalecticant sixfold"
 slug: "exceptional-collections-catalecticant-sixfold"
 date: 2026-11-06
 author: "Pieter Belmans"
-draft: true
+draft: false
 ---
 
 Back in May, I [wrote about verifying Kostant’s conjecture using Semisimple.jl](https://homogeneous.tools/blog/2026/05/29/verifying-kostants-conjecture/), and promised to make this into a series.
