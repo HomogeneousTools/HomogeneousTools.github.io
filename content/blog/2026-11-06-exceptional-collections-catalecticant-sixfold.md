@@ -51,14 +51,16 @@ but <del>we are not interested in any of that</del>
 
 ## Some sheaf cohomology computations
 
-We can start with the Hodge numbers:
+We can start with the Hodge numbers.
+The code uses the zero-based indexing from [PR #41](https://github.com/HomogeneousTools/PartialFlagVarieties.jl/pull/41):
+`H[p, q]` is $\mathrm{h}^{p,q}(X)$.
 
 ```julia
 H = hodge_numbers(X)
-[H[p + 1, p + 1] for p in 0:6]
+[H[p, p] for p in 0:6]
 # [1, 1, 2, 2, 2, 1, 1]
 
-all(H[p, q] == 0 for p in 1:7, q in 1:7 if p != q)  # true
+all(H[p, q] == 0 for p in 0:6, q in 0:6 if p != q)  # true
 ```
 
 All the off-diagonal entries vanish.
